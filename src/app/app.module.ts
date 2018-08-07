@@ -1,17 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+
+import { AngularFireModule, FirebaseNameOrConfigToken } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { IonicStorageModule } from '@ionic/storage';
 import { WelcomePage } from '../pages/welcome/welcome';
+
+import { AuthService } from '../providers/auth/auth-service';
+
+const firebaseConfig ={
+  apiKey: "AIzaSyCAekJjE8M6gWv2IPCLYp4GECTLKxVtPV4",
+  authDomain: "app-teste-abf9a.firebaseapp.com",
+  databaseURL: "https://app-teste-abf9a.firebaseio.com",
+  projectId: "app-teste-abf9a",
+  storageBucket: "app-teste-abf9a.appspot.com",
+  messagingSenderId: "1035464208848"
+};
 
 @NgModule({
   declarations: [
@@ -25,10 +38,8 @@ import { WelcomePage } from '../pages/welcome/welcome';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot({
-      name: '__mydb',
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
-    })
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +53,8 @@ import { WelcomePage } from '../pages/welcome/welcome';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
   ]
 })
 export class AppModule {}
