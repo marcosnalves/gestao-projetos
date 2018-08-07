@@ -27,9 +27,8 @@ export class RegisterPage {
     private toastCtrl: ToastController,
     private authService: AuthService,
     public loadingCtrl: LoadingController,
-    public popoverCtrl: PopoverController,
-    private screenOrientation: ScreenOrientation) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    public popoverCtrl: PopoverController) {
+
   }
 
   createAccount() {

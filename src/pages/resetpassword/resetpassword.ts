@@ -16,9 +16,7 @@ export class ResetpasswordPage {
   constructor(
     public navCtrl: NavController,
     private toastCtrl: ToastController,
-    private authService: AuthService,
-    private screenOrientation: ScreenOrientation) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    private authService: AuthService) {
     }
   resetPassword() {
     if (this.form.form.valid) {

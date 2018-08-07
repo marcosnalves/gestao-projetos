@@ -13,8 +13,7 @@ import { PopoverPage } from '../popover/popover';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private authService: AuthService, public popoverCtrl: PopoverController, private screenOrientation: ScreenOrientation) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  constructor(public navCtrl: NavController, private authService: AuthService, public popoverCtrl: PopoverController) {
   }
   presentPopover(myEvent) {
     const popover = this.popoverCtrl.create(PopoverPage);

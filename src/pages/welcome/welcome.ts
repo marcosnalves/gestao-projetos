@@ -20,11 +20,8 @@ export class WelcomePage {
 
   constructor(
     public navCtrl: NavController, 
-    public navParams: NavParams, 
-    //Copiar o abaixo para todas as paginas criadas, pois o mesmo trava em portrait.
-    private screenOrientation: ScreenOrientation) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-  }
+    public navParams: NavParams) {
+  };
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');
