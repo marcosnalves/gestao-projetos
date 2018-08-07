@@ -3,19 +3,19 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { AngularFireModule, FirebaseNameOrConfigToken } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
-import { IonicStorageModule } from '@ionic/storage';
 import { WelcomePage } from '../pages/welcome/welcome';
 
 import { AuthService } from '../providers/auth/auth-service';
+import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
+import { PopoverPage } from '../pages/popover/popover';
 
 const firebaseConfig ={
   apiKey: "AIzaSyCAekJjE8M6gWv2IPCLYp4GECTLKxVtPV4",
@@ -33,13 +33,16 @@ const firebaseConfig ={
     ListPage,
     LoginPage,
     RegisterPage,
-    WelcomePage
+    WelcomePage,
+    ResetpasswordPage,
+    PopoverPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ScreenOrientation
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,7 +51,9 @@ const firebaseConfig ={
     ListPage,
     LoginPage,
     RegisterPage,
-    WelcomePage
+    WelcomePage,
+    ResetpasswordPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,

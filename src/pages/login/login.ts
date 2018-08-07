@@ -5,6 +5,8 @@ import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
+import { ResetpasswordPage } from '../resetpassword/resetpassword';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 /**
  * Generated class for the LoginPage page.
  *
@@ -20,11 +22,19 @@ import { RegisterPage } from '../register/register';
 export class LoginPage {
   user: User = new User();
   @ViewChild('form') form: NgForm;
+  
 
   constructor(
     public navCtrl: NavController,
     private toastCtrl: ToastController,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private screenOrientation: ScreenOrientation) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+  }
+
+  resetPassword(){
+    this.navCtrl.push(ResetpasswordPage)
   }
 
   createAccount() {

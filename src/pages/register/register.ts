@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { User } from '../../providers/auth/user';
 import { AuthService } from '../../providers/auth/auth-service';
 import { HomePage } from '../home/home';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 /**
  * Generated class for the RegisterPage page.
@@ -26,7 +27,9 @@ export class RegisterPage {
     private toastCtrl: ToastController,
     private authService: AuthService,
     public loadingCtrl: LoadingController,
-    public popoverCtrl: PopoverController) {
+    public popoverCtrl: PopoverController,
+    private screenOrientation: ScreenOrientation) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   createAccount() {
