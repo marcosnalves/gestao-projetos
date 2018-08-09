@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      ViaCep
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>ViaCep Ionic 3 framework sample</h3>
+  <h4>Digite seu CEP: </h4>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <!--          <ion-label color="primary">CEP: </ion-label> -->
+        <ion-searchbar type="tel" [(ngModel)]="cep" (ionInput)="getEndereco()"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item *ngIf="endereco.logradouro">
+            Logradouro:
+            <br> {{ endereco.logradouro}}
+          </ion-item>
+          <ion-item *ngIf="endereco.complemento">
+            Complemento:
+            <br> {{ endereco.complemento}}
+          </ion-item>
+          <ion-item *ngIf="endereco.bairro">
+            Bairro:
+            <br> {{ endereco.bairro }}
+          </ion-item>
+          <ion-item *ngIf="endereco.localidade">
+            Cidade:
+            <br> {{ endereco.localidade }}
+          </ion-item>
+          <ion-item *ngIf="endereco.uf">
+            UF:
+            <br> {{ endereco.uf}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
